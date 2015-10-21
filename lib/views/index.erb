@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Brian's Github Issues</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+      <h1>Deep-seated Issues</h1>
+
+      <p>They're clearly abundant.</p>
+      <ul class="issues">
+          <% issues.each do |issue| %>
+              <li> 
+                  <a href="<%= issue[:url] %>">"<%= issue[:title] %>"</a>
+                  <p>Issue status: <%= issue[:state] %></p>
+                  <p>Created: <%= issue[:created] %></p>
+                  <p>Last Updated: <%= issue[:updated] %></p>
+                  <% if issue[:state] == "closed" %>
+                    <form action="/issue/reopen/<%= issue[:number] %>" method="post">
+                      <input type="submit" value="Reopen Issue">
+                  <% elsif issue[:state] == "open" %>
+                    <form action="/issue/close/<%= issue[:number] %>" method="post">
+                      <input type="submit" value="Close Issue">
+                  <% end %>
+                      <br>
+                      <br>
+                  </form>
+              </li>
+          <% end %>
+      </ul>
+  </body>
+</html>
