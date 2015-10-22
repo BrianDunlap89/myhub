@@ -12,7 +12,6 @@ module Myhub
 
     get "/" do
       api = Github.new
-
       issues = api.list_issues
       @issue_data = []
       issues.each do |issue|
@@ -37,7 +36,6 @@ module Myhub
 
     post "/issue/close/:id" do 
       api = Github.new
-      binding.pry
         api.close_issue(params["id"].to_i)
         "Issue has been closed."
     end  
