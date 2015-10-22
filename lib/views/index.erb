@@ -3,14 +3,18 @@
   <head>
     <title>Brian's Github Issues</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter:400,700&effect=3d-float|neon">
   </head>
   <body>
-      <h1>Deep-seated Issues</h1>
-
-      <p>They're clearly abundant.</p>
+    <div class="header">
+      <h1 class="font-effect-3d-float">Deep-seated Issues</h1>
+      <h3 class="font-effect-neon">for your viewing pleasure</h3>
+    </div>
       <ul class="issues">
           <% issues.each do |issue| %>
-              <li> 
+              <li>
+                  <div class="issue-border">
+                  <section class="issue"> 
                   <a href="<%= issue[:url] %>">"<%= issue[:title] %>"</a>
                   <p>Issue status: <%= issue[:state] %></p>
                   <p>Created: <%= issue[:created] %></p>
@@ -22,6 +26,8 @@
                     <form action="/issue/close/<%= issue[:number] %>" method="post">
                       <input type="submit" value="Close Issue">
                   <% end %>
+                  </section>
+                  </div>
                       <br>
                       <br>
                   </form>
