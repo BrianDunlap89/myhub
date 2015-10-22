@@ -17,7 +17,7 @@ module Myhub
       issues.each do |issue|
         issue = { 
                   title: issue["title"], 
-                  url: issue["url"],
+                  url: issue["html_url"],
                   number: issue["number"],
                   state: issue["state"],
                   created: issue["created_at"],
