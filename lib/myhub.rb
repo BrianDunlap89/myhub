@@ -15,7 +15,6 @@ module Myhub
 
       issues = api.list_issues
       @issue_data = []
-      # binding.pry
       issues.each do |issue|
         issue = { 
                   title: issue["title"], 
@@ -26,7 +25,6 @@ module Myhub
                   updated: issue["updated_at"]
                 }
         @issue_data.push(issue)
-        # binding.pry
       end
       erb :index, locals: { issues: @issue_data }
     end
